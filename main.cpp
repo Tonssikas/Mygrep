@@ -3,7 +3,7 @@
 #include <fstream>
 
 
-//prototypes
+// prototyypit
 void searchString(const std::string& search_string, const std::string& input_string);
 void searchFile(const std::string& fileName, const std::string& search_string, bool showLineNumbers = false, bool countOccurrences = false);
 
@@ -11,7 +11,7 @@ void searchFile(const std::string& fileName, const std::string& search_string, b
 
 int main(int argc, char *argv[]) {
 
-
+    //Argumenttien käsittely ja aliohjelmien kutsu oikeilla argumenteilla
 
         if (argc == 1 ){
             std::string search_string;
@@ -39,7 +39,7 @@ int main(int argc, char *argv[]) {
                 searchFile(fileName, search_string, true);
             } else if (option == "-oo") {
                 searchFile(fileName, search_string, false, true);
-            } else if (option == "-olo" || "-ool") {
+            } else if (option == "-olo" || option == "-ool") {
                 searchFile(fileName, search_string, true, true);
             } else {
                 std::cout << "Invalid option" << std::endl;
@@ -54,7 +54,7 @@ int main(int argc, char *argv[]) {
         std::cin.get();
         return 0;
 }
-
+// 1. inkrementin aliohjelma, joka etsii merkkijonon toisesta merkkijonosta. Molemmat käyttäjän syöttämiä.
 void searchString(const std::string& search_string, const std::string& input_string) {
     int found = input_string.find(search_string);
     if (found != std::string::npos) {
@@ -64,6 +64,7 @@ void searchString(const std::string& search_string, const std::string& input_str
     }
 }
 
+ //aliohjelma, joka etsii merkkijonon tiedostosta. Käyttäjä syöttää tiedoston nimen ja etsittävän merkkijonon.
 void searchFile(const std::string& fileName, const std::string& search_string, bool showLineNumbers, bool countOccurrences) {
     std::ifstream file(fileName);
     if (!file.is_open()) {
